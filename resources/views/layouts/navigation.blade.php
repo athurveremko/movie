@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-nav">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,23 +6,28 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <svg width="38" height="43" viewBox="0 0 38 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.1429 6V37C30.1429 39.7614 27.9043 42 25.1429 42H6C3.23858 42 1 39.7614 1 37V6C1 3.23858 3.23857 1 6 1H25.1429C27.9043 1 30.1429 3.23858 30.1429 6Z" stroke="white" stroke-width="2"/>
+                            <path d="M29.2857 39.95V39.95C31.6526 39.95 33.5714 38.0312 33.5714 35.6643V7.3357C33.5714 4.96876 31.6526 3.04999 29.2857 3.04999V3.04999" stroke="white" stroke-width="2"/>
+                            <path d="M32.7143 37.9V37.9C35.0812 37.9 37 35.9812 37 33.6143V9.38572C37 7.01879 35.0812 5.10001 32.7143 5.10001V5.10001" stroke="white" stroke-width="2"/>
+                            <path d="M11 28.0862V16.0142C11 15.1876 11.946 14.7179 12.6045 15.2177L20.904 21.5161C21.445 21.9267 21.4281 22.7457 20.8705 23.1336L12.5711 28.9071C11.908 29.3683 11 28.8939 11 28.0862Z" stroke="white" stroke-width="2"/>
+                        </svg>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Головна') }}
                     </x-nav-link>
-                </div>
+                </div> -->
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-custom focus:outline-none transition ease-in-out duration-150" style="color: white;" onmouseover="this.style.color='#D1D5DB'" onmouseout="this.style.color='white'">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -98,3 +103,11 @@
         </div>
     </div>
 </nav>
+
+
+
+<style>
+    .bg-nav {
+        background-color: #2B2A2A;
+    }
+</style>
