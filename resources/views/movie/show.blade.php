@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="box-color">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <div class="card bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg shadow-md hover:shadow-lg transition duration-300 my-4">
-                        <div class="flex">
+                    <div class="card box-color hover:shadow-lg transition duration-300 my-4">
+                        <div class="main-content">
                             <div class="mr-4">
                                 <div class="card-image">
                                     <div style="width: 100%; height: 100%; overflow: hidden;">
@@ -12,7 +12,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex-grow">
+                            <div class="test-content">
                                 <p class="font-semibold text-lg pt-4 pl-4">{{ $movie->name }}</p>
                                 <hr class="my-4">
                                 <div class="mb-4">
@@ -50,6 +50,32 @@
 </x-app-layout>
 
 <style>
+    .main-content{
+        display: flex;
+        justify-content: space-between;   
+    }
+
+    .test-content{
+        margin: 10px;
+        width: 55%;
+    }
+
+    hr {
+        border-width: 1px;
+    }
+
+    .card-image{
+        margin-left: auto;
+    }
+
+    .bg-color{
+        background-color: #3E3D3D;
+    }
+    .box-color{
+        background-color: #2B2A2A;
+        border-radius: 20px;
+    }
+
     .card-image img {
         width: 500px;
         height: 600px;

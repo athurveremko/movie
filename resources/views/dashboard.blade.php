@@ -1,48 +1,63 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        <button onclick="location.href='{{ route('movie.create') }}'" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    +
-        </button>
-        <button onclick="toggleDropDown()" id="dropDownBtn">
-                <svg width="63" height="22" viewBox="0 0 63 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M55.5 15L49.8708 5.25L61.1292 5.25L55.5 15Z" fill="#3E3D3D" stroke="white" stroke-width="2"/>
-                    <path d="M55.5 13L49.8708 3.25L61.1292 3.25L55.5 13Z" fill="#3E3D3D"/>
-                    <rect x="0.5" y="0.5" width="41" height="3" rx="1.5" fill="#3E3D3D" stroke="white"/>
-                    <path d="M0.5 8C0.5 7.17157 1.17157 6.5 2 6.5H40C40.8284 6.5 41.5 7.17157 41.5 8C41.5 8.82843 40.8284 9.5 40 9.5H2C1.17157 9.5 0.5 8.82843 0.5 8Z" fill="#3E3D3D" stroke="white"/>
-                    <path d="M0.5 20C0.5 19.1716 1.17157 18.5 2 18.5H40C40.8284 18.5 41.5 19.1716 41.5 20C41.5 20.8284 40.8284 21.5 40 21.5H2C1.17157 21.5 0.5 20.8284 0.5 20Z" fill="#3E3D3D" stroke="white"/>
-                    <rect x="0.5" y="12.5" width="41" height="3" rx="1.5" fill="#3E3D3D" stroke="white"/>
-                </svg>
-            </button>
-        </h2>
-        <div id="dropdown" class="hidden">
-            <div class="dropdown-content">
-            <p class="text-white">Вигляд</p>
-            <button><svg width="43" height="22" viewBox="0 0 43 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1.17896" y="0.5" width="41" height="3" rx="1.5" fill="#2B2A2A" stroke="white"/>
-                <path d="M1.17896 8C1.17896 7.17157 1.85053 6.5 2.67896 6.5H40.679C41.5074 6.5 42.179 7.17157 42.179 8C42.179 8.82843 41.5074 9.5 40.679 9.5H2.67895C1.85053 9.5 1.17896 8.82843 1.17896 8Z" fill="#2B2A2A" stroke="white"/>
-                <path d="M1.17896 20C1.17896 19.1716 1.85053 18.5 2.67896 18.5H40.679C41.5074 18.5 42.179 19.1716 42.179 20C42.179 20.8284 41.5074 21.5 40.679 21.5H2.67895C1.85053 21.5 1.17896 20.8284 1.17896 20Z" fill="#2B2A2A" stroke="white"/>
-                <rect x="1.17896" y="12.5" width="41" height="3" rx="1.5" fill="#2B2A2A" stroke="white"/>
-                </svg>
-            </button>
-            <button><svg width="43" height="23" viewBox="0 0 43 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1.17896" y="0.5" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="12.092" y="0.5" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="23.0051" y="0.5" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="33.918" y="0.5" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="1.17896" y="12.6538" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="12.092" y="12.6538" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="23.0051" y="12.6538" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                <rect x="33.918" y="12.6538" width="7.91304" height="9.15385" rx="1.5" fill="#555555" stroke="white"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class=" overflow-hidden shadow-sm sm:rounded-lg">
+          
+            <div class="filter">
+                <button onclick="location.href='{{ route('movie.create') }}'" class="button-add">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="7" x2="7" y2="14" stroke="white" stroke-width="2"/>
+                        <line y1="7" x2="14" y2="7" stroke="white" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button class="button-view" onclick="toggleMenu()">
+                    <svg width="65" height="23" viewBox="0 0 65 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M62 5L57 13.5L52 5H50L57 17L64 5H62Z" fill="white" stroke="white"/>
+                        <path d="M1 21V14C1 13.4477 1.44772 13 2 13H8C8.55228 13 9 13.4477 9 14V21C9 21.5523 8.55228 22 8 22H2C1.44772 22 1 21.5523 1 21Z" stroke="white"/>
+                        <path d="M12 21V14C12 13.4477 12.4477 13 13 13H19C19.5523 13 20 13.4477 20 14V21C20 21.5523 19.5523 22 19 22H13C12.4477 22 12 21.5523 12 21Z" stroke="white"/>
+                        <path d="M23 21V14C23 13.4477 23.4477 13 24 13H30C30.5523 13 31 13.4477 31 14V21C31 21.5523 30.5523 22 30 22H24C23.4477 22 23 21.5523 23 21Z" stroke="white"/>
+                        <path d="M34 21V14C34 13.4477 34.4477 13 35 13H41C41.5523 13 42 13.4477 42 14V21C42 21.5523 41.5523 22 41 22H35C34.4477 22 34 21.5523 34 21Z" stroke="white"/>
+                        <path d="M1 9V2C1 1.44772 1.44772 1 2 1H8C8.55228 1 9 1.44772 9 2V9C9 9.55229 8.55228 10 8 10H2C1.44772 10 1 9.55229 1 9Z" stroke="white"/>
+                        <path d="M12 9V2C12 1.44772 12.4477 1 13 1H19C19.5523 1 20 1.44772 20 2V9C20 9.55229 19.5523 10 19 10H13C12.4477 10 12 9.55229 12 9Z" stroke="white"/>
+                        <path d="M23 9V2C23 1.44772 23.4477 1 24 1H30C30.5523 1 31 1.44772 31 2V9C31 9.55229 30.5523 10 30 10H24C23.4477 10 23 9.55229 23 9Z" stroke="white"/>
+                        <path d="M34 9V2C34 1.44772 34.4477 1 35 1H41C41.5523 1 42 1.44772 42 2V9C42 9.55229 41.5523 10 41 10H35C34.4477 10 34 9.55229 34 9Z" stroke="white"/>
+                    </svg>
+                </button>
+            
+                <div id="menu" class="menu floor">
+                    <ul class="menu-ul">
+                        <li>
+                            <p class="text-white">Вигляд</p>
+                        </li>
+                        <li>
+                            <button class="button-menu">
+                                <svg width="43" height="23" viewBox="0 0 43 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40.5 19H2.5C1.67157 19 1 19.6716 1 20.5C1 21.3284 1.67157 22 2.5 22H40.5C41.3284 22 42 21.3284 42 20.5C42 19.6716 41.3284 19 40.5 19Z" stroke="white"/>
+                                <path d="M40.5 7H2.5C1.67157 7 1 7.67157 1 8.5C1 9.32843 1.67157 10 2.5 10H40.5C41.3284 10 42 9.32843 42 8.5C42 7.67157 41.3284 7 40.5 7Z" stroke="white"/>
+                                <path d="M40.5 1H2.5C1.67157 1 1 1.67157 1 2.5C1 3.32843 1.67157 4 2.5 4H40.5C41.3284 4 42 3.32843 42 2.5C42 1.67157 41.3284 1 40.5 1Z" stroke="white"/>
+                                <path d="M40.5 13H2.5C1.67157 13 1 13.6716 1 14.5C1 15.3284 1.67157 16 2.5 16H40.5C41.3284 16 42 15.3284 42 14.5C42 13.6716 41.3284 13 40.5 13Z" stroke="white"/>
+                                </svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="button-menu">
+                                <svg width="43" height="23" viewBox="0 0 43 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 21V14C1 13.4477 1.44772 13 2 13H8C8.55228 13 9 13.4477 9 14V21C9 21.5523 8.55228 22 8 22H2C1.44772 22 1 21.5523 1 21Z" stroke="white"/>
+                                <path d="M12 21V14C12 13.4477 12.4477 13 13 13H19C19.5523 13 20 13.4477 20 14V21C20 21.5523 19.5523 22 19 22H13C12.4477 22 12 21.5523 12 21Z" stroke="white"/>
+                                <path d="M23 21V14C23 13.4477 23.4477 13 24 13H30C30.5523 13 31 13.4477 31 14V21C31 21.5523 30.5523 22 30 22H24C23.4477 22 23 21.5523 23 21Z" stroke="white"/>
+                                <path d="M34 21V14C34 13.4477 34.4477 13 35 13H41C41.5523 13 42 13.4477 42 14V21C42 21.5523 41.5523 22 41 22H35C34.4477 22 34 21.5523 34 21Z" stroke="white"/>
+                                <path d="M1 9V2C1 1.44772 1.44772 1 2 1H8C8.55228 1 9 1.44772 9 2V9C9 9.55229 8.55228 10 8 10H2C1.44772 10 1 9.55229 1 9Z" stroke="white"/>
+                                <path d="M12 9V2C12 1.44772 12.4477 1 13 1H19C19.5523 1 20 1.44772 20 2V9C20 9.55229 19.5523 10 19 10H13C12.4477 10 12 9.55229 12 9Z" stroke="white"/>
+                                <path d="M23 9V2C23 1.44772 23.4477 1 24 1H30C30.5523 1 31 1.44772 31 2V9C31 9.55229 30.5523 10 30 10H24C23.4477 10 23 9.55229 23 9Z" stroke="white"/>
+                                <path d="M34 9V2C34 1.44772 34.4477 1 35 1H41C41.5523 1 42 1.44772 42 2V9C42 9.55229 41.5523 10 41 10H35C34.4477 10 34 9.55229 34 9Z" stroke="white"/>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+                <hr>
                 <div id="cardContainer" class="flex flex-wrap justify-center">
                     @if ($movie->isEmpty())
                         <div class="p-6 text-center text-gray-900 dark:text-gray-100 mb-4 sm:mb-0">
@@ -71,7 +86,7 @@
                                         <p class="text-gray-600 dark:text-gray-400 mt-5 mb-5">{{ $movies->year }}</p>
                                     </div>
                                     <div class="add-more-button">
-                                    <button onclick="location.href='{{ route('movie.show', ['movie' => $movies->id]) }}'">                                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <button onclick="location.href='{{ route('movie.show', ['movie' => $movies->id]) }}'">                                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <circle cx="17.5" cy="17.5" r="17.5" fill="#555555"/>
                                                 <circle cx="8.00003" cy="17" r="3" fill="#D9D9D9"/>
                                                 <circle cx="17" cy="17" r="3" fill="#D9D9D9"/>
@@ -96,12 +111,36 @@
 
 <style>
   
-   .card-grid {
+    .filter {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+    }
+    .button-add,.button-view {
+        background-color: #3E3D3D;
+        padding: 10px;
+        color: #fff;
+        border: 0;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
+    .button-add:hover {
+        background-color:#2B2A2A;
+        transition: 0.5s;
+    }
+    .button-view:hover {
+        background-color:#2B2A2A;
+        transition: 0.5s;
+    }
+  
+    .card-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 1fr;
-        gap: 16px;
-}
+        gap: 50px;
+    }
 
     .card {
         width: 100%;
@@ -110,6 +149,14 @@
         overflow: hidden;
         border-radius: 15px;
         position: relative;
+        border: 2px solid;
+        border-color: #2B2A2A;
+        background-color: #2B2A2A;
+    }
+
+    .card:hover {
+        border-color:#fff;
+        transition: 0.1s;
     }
 
     .card-image {
@@ -118,9 +165,9 @@
         overflow: hidden;
         border-radius: 15px 15px 0 0;
     }
-    .card-image-content:hover {
+    /* .card-image-content:hover {
     transform: scale(1.1);
-}
+} */
     .card-image img {
         width: 100%;
         height: 100%;
@@ -159,20 +206,56 @@
     .right-corner {
         right: 20px;
     }
-    .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
+
+    .button-view {
+        position: relative;
+        border: 0;
+        z-index: 10;
     }
 
-    .dropdown-content button {
-        margin-bottom: 100px;
+    .menu {
+        position: absolute;
+        top: 100%; 
+        right: 0;
+        z-index: 5; 
+        background-color: #2B2A2A;
+        align-items: center;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 5px;
+       
     }
+
+    .floor {
+        display: none;
+    }
+
+    .menu-ul { 
+        list-style: none; 
+        margin: 0;
+        padding: 10px 10px;
+    }
+
+    .button-menu{
+        background-color:#2B2A2A;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .button-menu:hover {
+        background-color:#3E3D3D;
+        transition: 0.5s;
+    }
+    
+    hr {
+        border-width: 1px;
+    }
+
 </style>
 
 <script>
-    function toggleDropDown() {
-        var dropdown = document.getElementById("dropdown");
-        dropdown.classList.toggle("hidden");
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("floor");
     }
 </script>

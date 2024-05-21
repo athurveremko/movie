@@ -45,3 +45,12 @@
         </div>
     </form>
 </x-guest-layout>
+
+<style>
+    .bg-color{
+        background-color: #3E3D3D;
+    }
+    .box-color{
+        background-color: #2B2A2A;
+    }
+</style>
